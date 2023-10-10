@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #a0c9fd;
+    color: white;
+}
+
+#contenedor{
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+
+    grid-template-areas:    "header header header"
+                            "nav nav nav"
+                            "contenido contenido sidebar"
+                            "widget-1 widget-2 sidebar"
+                            "footer footer footer";
+}
+
+.bordes{
+    background-color: #65a7fd;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+/*header{
+    background-color: #c94803;
+    color: white;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}*/
+
+#header{
+    grid-area: header;
+}
+
+nav{
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    grid-area: nav;
+    font-size: 40px;
+}
+
+a{
+    padding: 20px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#contenido{
+    grid-area: contenido;
+}
+
+#sidebar{
+    grid-column: 3 / 4;
+    background-color: #4596ff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: sidebar;
+}
+
+#widget-1{
+    grid-area: widget-1 ;
+}
+
+#widget-2{
+    grid-area: widget-2 ;
+}
+
+.wid{
+    background: #6296db;
+    color: white;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    background-color: #65a7fd;
+    color: white;
+    grid-area: footer;
+    text-align: center;
+    align-items: center;
+}
+.social{
+    float: left;
+    margin-left: 100px;
+}
+.social p{
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.social a :hover{
+    transform: translateY(-5px);
+}
+
+.info{
+    float: right;
+    margin-right: 150px;
+    font-size: 20px;
+}
+.info a :hover{
+    transform: translateY(-5px);
+}
+
+@media screen and (max-width: 768px){
+    #contenido{
+        grid-template-areas: "header header header"
+
+        "nav nav nav"
+
+        "contenido contenido sidebar"
+
+        "widget-1 widget-2 sidebar"
+
+        "footer footer footer";
+
+    }
+}
+@media screen and (max-width: 300px){
+    #contenido{
+        grid-template-areas: "header header" 50px
+
+        "nav nav" 20px
+
+        "contenido contenido" auto
+
+        "sidebar sidebar" 50px
+
+        "widget-1 widget-2" auto
+
+        "footer footer" 50px / 100px auto;
+
+    }
+}
